@@ -5,7 +5,7 @@ import { HelloWorld } from './components/HelloWorld.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HelloWorld />
+    <HelloWorld user={"Juan"} id='1'/>
   </StrictMode>
  
 )
