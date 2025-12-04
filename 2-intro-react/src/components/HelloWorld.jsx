@@ -1,8 +1,6 @@
-//use 'props' to receive properties from the parent component
-//export function HelloWorld(props) {
-//destructure the props to get the values directly
-//asignar valor por defecto a title, pasar objetos y valores numericos, de esta menera se recibe cualquier tipo de dato por props
-export const HelloWorld = ({user, id, title = 'default title',numero,direccion}) => {
+import PropTypes from 'prop-types';
+
+export const HelloWorld = ({user, id, title,numero,direccion}) => {
     
     console.log(title)
 
@@ -14,8 +12,17 @@ export const HelloWorld = ({user, id, title = 'default title',numero,direccion})
                 {/*Usando destructuring*/}
                 <div>que tal, {user}!! con el id {id}</div>
                 <div>numero: {numero + 3}</div>
-                <div>direccion: {direccion.calle}, {direccion.number} (id: {direccion.id})</div>
+                <div>direccion: {direccion.calle}, {direccion.id}</div>
             </>
 
     );
-}
+};
+
+HelloWorld.propTypes = {
+    numero: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired
+};
+
+HelloWorld.defaultProps = {
+    title: 'Hola, soy un componente de React'
+};
